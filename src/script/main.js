@@ -156,6 +156,19 @@ form.addEventListener("submit", e => {
     searchIcon.classList.add("invalid--icon");
   }
 });
+formIcon.addEventListener("click", e => {
+  e.preventDefault();
+
+  if (formInput.value) {
+    formInput.classList.remove("invalid");
+    searchIcon.classList.remove("invalid--icon");
+    console.log("sould work");
+    getWords(formInput.value);
+  } else {
+    formInput.classList.add("invalid");
+    searchIcon.classList.add("invalid--icon");
+  }
+});
 
 //test
 const res = await (
@@ -174,6 +187,7 @@ mode.addEventListener("change", e => {
     setColor("--input-background", "#1F2937");
     setColor("--background", "#0F172A");
     setColor("--audio", "#134E4A");
+    setColor("--error", "#4C0519");
   } else {
     setColor("--background", "#fff");
     setColor("--text-light", "#9ca3af");
@@ -183,6 +197,7 @@ mode.addEventListener("change", e => {
     setColor("--white", "#fff");
     setColor("--input-background", "#f1f5f9");
     setColor("--audio", "#f0fdfa");
+    setColor("--error", "#fef2f2");
   }
 });
 

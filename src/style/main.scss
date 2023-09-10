@@ -22,6 +22,7 @@
   --input-background: #f1f5f9;
   --purple: #14b8a6;
   --audio: #f0fdfa;
+  --error: #fef2f2;
 }
 html {
   font-size: clamp(8px, 1vw, 10px);
@@ -40,10 +41,6 @@ body {
   gap: 4rem;
 }
 
-select option {
-  appearance: none;
-  font-size: 2rem;
-}
 .header {
   padding: 2rem;
 
@@ -65,7 +62,7 @@ select option {
   }
   &__input-text {
     background-color: var(--background);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 600;
     padding: 0.5rem 1rem;
     padding-right: 4rem;
@@ -76,6 +73,11 @@ select option {
     appearance: none;
     &:focus {
       outline: none;
+    }
+
+    option {
+      appearance: none;
+      font-size: 2rem;
     }
   }
   &__select-icon {
@@ -350,12 +352,12 @@ input:checked + .slider:before {
 // invalid input
 .invalid {
   border: 1px solid #f87171;
-  background-color: #fef2f2;
+  background-color: var(--error);
   box-shadow: 0 0 0.5rem 0.2rem rgb(252, 165, 165, 0.5);
   &:focus {
     outline: none;
     border-color: #f87171;
-    box-shadow: 0 0 1rem 0.4rem #fef2f2;
+    box-shadow: 0 0 1rem 0.4rem var(--error);
   }
 }
 .invalid--icon {
