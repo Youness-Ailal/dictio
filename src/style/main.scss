@@ -294,6 +294,9 @@ body {
       }
     }
   }
+  &__icon {
+    stroke: var(--black);
+  }
 }
 
 //mode switcher

@@ -286,6 +286,9 @@ body {
 .source__link--c svg {
   width: 2rem;
 }
+.source__icon {
+  stroke: var(--black);
+}
 
 /* The switch - the box around the slider */
 .switch {
