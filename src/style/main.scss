@@ -1,0 +1,371 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  transition: 0.3s !important;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
+
+:root {
+  --font: serif;
+  --font-noun: "Borel", serif;
+  --text-light: #9ca3af;
+  --text-light-2: #374151;
+  --text-light-3: #d1d5db;
+  --black: #000;
+  --background: #fff;
+  --white: #fff;
+  --input-background: #f1f5f9;
+  --purple: #14b8a6;
+  --audio: #f0fdfa;
+}
+html {
+  font-size: clamp(8px, 1vw, 10px);
+}
+body {
+  font-family: var(--font);
+  line-height: 1.4;
+  background-color: var(--background);
+}
+
+.container {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+select option {
+  appearance: none;
+  font-size: 2rem;
+}
+.header {
+  padding: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    fill: var(--black);
+  }
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 8rem;
+  }
+  &__text-selector {
+    position: relative;
+    display: flex;
+  }
+  &__input-text {
+    background-color: var(--background);
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    padding-right: 4rem;
+    text-align: center;
+    width: 100%;
+    border: none;
+    color: var(--black);
+    appearance: none;
+    &:focus {
+      outline: none;
+    }
+  }
+  &__select-icon {
+    height: 2.5rem;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transition: transform 0.3s, translate 0;
+    transform: rotate(0deg);
+    translate: 0 -40%;
+    stroke: var(--purple);
+  }
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  &__input {
+    width: 100%;
+    padding: 2rem;
+    border-radius: 1rem;
+    padding-left: 4rem;
+    letter-spacing: 1px;
+    border: 1px solid transparent;
+    background-color: var(--input-background);
+    font-size: 1.8em;
+    transition: 0.2s;
+    color: var(--black);
+    &::placeholder {
+      font-size: 1.6rem;
+      color: var(--text-light-2);
+      opacity: 0.8;
+    }
+    &:focus {
+      outline: none;
+      border-color: var(--purple);
+      box-shadow: 0 0 1rem 0.4rem var(--audio);
+    }
+  }
+  &__icon {
+    cursor: pointer;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translateY(-50%);
+    stroke: var(--purple);
+  }
+}
+
+.app {
+  padding: 2rem;
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 0;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid var(--text-light-3);
+    position: relative;
+    margin-bottom: 5rem;
+  }
+  &__noun {
+    color: var(--black);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: var(--background);
+    transform: translateY(50%);
+    font-family: var(--font-noun);
+  }
+  &__word {
+    font-size: 5rem;
+    grid-row: 1/2;
+    color: var(--black);
+  }
+  &__prounance {
+    color: var(--purple);
+    font-size: 2rem;
+    grid-row: 2/3;
+    height: 10rem;
+    width: 10rem;
+  }
+  &__left {
+    display: grid;
+    grid-template-rows: 1fr 6rem;
+    gap: 1rem;
+  }
+  &__audio {
+    cursor: pointer;
+    border: none;
+    background-color: var(--audio);
+    height: 10rem;
+    aspect-ratio: 1;
+    border-radius: 100rem;
+    display: grid;
+    place-content: center;
+
+    background-image: url("../images/play.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    &--icon {
+      stroke: var(--purple);
+      width: 5rem;
+      translate: 1rem 0;
+    }
+  }
+  &__result {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 3rem;
+  }
+  &__meaning {
+    font-size: 2rem;
+    color: var(--text-light);
+    &--v {
+    }
+  }
+  &__synonym {
+    font-size: 2rem;
+    color: var(--text-light);
+
+    &--word {
+      color: var(--purple);
+      margin-left: 2rem;
+      font-size: 2rem;
+    }
+    &--container {
+      padding-bottom: 7rem;
+      position: relative;
+      border-bottom: 1px solid var(--text-light-3);
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    &--v {
+      translate: 0 -4.5rem;
+    }
+  }
+  &__verb {
+    font-size: 2rem;
+    padding: 1rem;
+    display: block;
+    background-color: var(--background);
+    color: var(--black);
+    font-family: var(--font-noun);
+    align-self: start;
+    transform: translate(-2rem, -5.5rem);
+
+    &--list {
+      transform: translate(3rem, -5rem);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid var(--text-light-3);
+    }
+    &--item {
+      font-size: 1.8rem;
+      color: var(--text-light-2);
+      &::marker {
+        color: var(--purple);
+      }
+      ul {
+        list-style: none;
+        margin-top: 0.5rem;
+        font-size: 1.7rem;
+        color: var(--text-light-2);
+        opacity: 0.8;
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    translate: 3rem 0;
+  }
+  &__item {
+    color: var(--text-light-2);
+    font-size: 1.8rem;
+    &::marker {
+      color: var(--purple);
+    }
+  }
+}
+.source {
+  translate: 2rem -5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+
+  &__text {
+    font-size: 2rem;
+    color: var(--text-light-2);
+    opacity: 0.8;
+  }
+  &__link {
+    font-size: 2rem;
+    color: var(--text-light-2);
+    text-underline-offset: 0.3rem;
+    &--c {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      svg {
+        width: 2rem;
+      }
+    }
+  }
+}
+
+//mode switcher
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: var(--text-light-2);
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: 0.5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #fff;
+  background: var(--background);
+  transition: 0.5s;
+}
+
+input:checked + .slider {
+  background-color: var(--purple);
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #fff;
+}
+
+// invalid input
+.invalid {
+  border: 1px solid #f87171;
+  background-color: #fef2f2;
+  box-shadow: 0 0 0.5rem 0.2rem rgb(252, 165, 165, 0.5);
+  &:focus {
+    outline: none;
+    border-color: #f87171;
+    box-shadow: 0 0 1rem 0.4rem #fef2f2;
+  }
+}
+.invalid--icon {
+  stroke: #f87171;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.down {
+  translate: 2rem 1rem;
+}
